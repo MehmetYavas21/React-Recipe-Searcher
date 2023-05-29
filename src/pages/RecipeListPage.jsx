@@ -3,6 +3,7 @@ import { data } from "../utils/data";
 import { TextInput } from "../components/ui/TextInput";
 import { RecipeList } from "../components/RecipeList";
 import { Heading, Box, Center } from "@chakra-ui/react";
+import { Button } from  "../components/ui/TextInput";
 
 export const RecipeListPage = ({ clickFn, setItem }) => {
   const greeting = "Welcome to Winc Recipe Finder!";
@@ -24,8 +25,7 @@ export const RecipeListPage = ({ clickFn, setItem }) => {
   });
 
   return (
-    <>
-      <Center flexDir={"column"} gap={4} size={["sm", "md", "lg", "xl"]}>
+      <Flex flexDir="column">
         <Heading
           m="auto"
           size={["sm", "md", "lg", "xl"]}
@@ -35,19 +35,21 @@ export const RecipeListPage = ({ clickFn, setItem }) => {
         >
           {greeting}
         </Heading>
-
-        <TextInput
-          border="1px solid #ddd"
-          borderRadius="10"
-          changeFn={handleChange}
-          pl="10"
-          cursor="pointer"
-          w={200}
-          mb={8}
-          color="teal"
-          placeholder="custom placeholder"
-          _placeholder={{ color: "inherit" }}
-        />
+          <Flex flexDir="row">
+            <TextInput
+              border="1px solid #ddd"
+              borderRadius="10"
+              changeFn={handleChange}
+              pl="10"
+              cursor="pointer"
+              w={200}
+              mb={8}
+              color="teal"
+              placeholder="custom placeholder"
+              _placeholder={{ color: "inherit" }}
+            />
+            <Button/>
+           </Flex>
         <RecipeList
           recipes={matchedRecipes}
           clickFn={clickFn}
@@ -56,7 +58,6 @@ export const RecipeListPage = ({ clickFn, setItem }) => {
           // flexDirection="column"
           // alignSelf="center"
         />
-      </Center>
-    </>
+      </Flex>
   );
 };
