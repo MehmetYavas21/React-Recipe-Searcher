@@ -6,6 +6,7 @@ import {
   Heading,
   GridItem,
   Center,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { RecipeItem } from "./RecipeItem";
 import { useState } from "react";
@@ -21,14 +22,14 @@ export const RecipeList = ({ recipes, clickFn, setItem }) => {
         pl="10"
         pr="10"
       >
-        <Grid
-          templateColumns={[
-            "repeat(1, 1fr 1fr)",
-            "repeat(2, 1fr 1fr)",
-            "repeat(3, 1fr 1fr)",
-            "repeat(4, 1fr 1fr)",
-          ]}
-          gap="3"
+        <SimpleGrid
+          bg='gray.500'
+          columns={{ sm: 1, md: 2, lg:4, xl:6 }}
+          spacing='8'
+          p='10'
+          textAlign='center'
+          rounded='lg'
+          color='gray.400'
         >
           {recipes.map((recipe) => (
             <>
@@ -42,7 +43,7 @@ export const RecipeList = ({ recipes, clickFn, setItem }) => {
               </GridItem>
             </>
           ))}
-        </Grid>
+        </SimpleGrid>
       </Center>
     </>
   );
